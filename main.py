@@ -1,5 +1,7 @@
 from flask import Flask
 
+from .config import SECRET_KEY
+
 
 def create_app():
     app = Flask(__name__)
