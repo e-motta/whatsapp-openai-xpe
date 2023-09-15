@@ -2,10 +2,10 @@ from dataclasses import dataclass, field
 from typing import Literal
 from bson import ObjectId
 
-from ..config import MongoDB
+# from ..config import MongoDB
 
-mongo = MongoDB()
-db = mongo.db
+# mongo = MongoDB()
+# db = mongo.db
 
 
 @dataclass
