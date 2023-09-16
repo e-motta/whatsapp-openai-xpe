@@ -70,6 +70,7 @@ def send_whatsapp_message(user_id: str, message: str):
             "preview_url": False,
         },
     }
+    print("Inside send_what_m: ", payload)
     try:
         response = post_message(payload)
         return response

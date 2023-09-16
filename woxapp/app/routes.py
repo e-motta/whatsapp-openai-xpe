@@ -54,12 +54,13 @@ def webhook_post() -> Response:
             user_content = get_content_from_whatsapp_message(whatsapp_message)
 
             conversation = get_or_create_conversation(user_id)
-
+            print("After create conversation: ", conversation)
             add_message_to_conversation(
                 conversation,
                 role="user",
                 content=user_content,
             )
+            print("After adding message: ", conversation)
 
             assistant_content: OpenAIContent = get_assistant_content(
                 conversation.limited_messages
@@ -72,6 +73,8 @@ def webhook_post() -> Response:
                 role="assistant",
                 content=assistant_content,
             )
+
+            print("After assistant content: ", conversation)
 
             send_whatsapp_message(user_id, assistant_content)
     except Exception as e:

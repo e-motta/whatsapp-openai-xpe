@@ -12,18 +12,18 @@ initial_message = Message(role="system", content=INITIAL_PROMPT)
 
 
 def get_or_create_conversation(user_id: str) -> Conversation:
-    conversation = Conversation.get_by_user_id(user_id)
+    # conversation = Conversation.get_by_user_id(user_id)
 
-    if conversation:
-        return conversation
-    else:
-        new_conversation = Conversation(
-            user_id=user_id,
-            messages=[initial_message],
-            limited_messages=[initial_message],
-        )
-        new_conversation.save()
-        return new_conversation
+    # if conversation:
+    #    return conversation
+    # else:
+    new_conversation = Conversation(
+        user_id=user_id,
+        messages=[initial_message],
+        limited_messages=[initial_message],
+    )
+    # new_conversation.save()
+    return new_conversation
 
 
 def _create_new_conversation_message(
@@ -51,4 +51,4 @@ def add_message_to_conversation(
     else:
         conversation.limited_messages = conversation.messages[-MESSAGES_LIMIT:]
 
-    conversation.save()
+    # conversation.save()
