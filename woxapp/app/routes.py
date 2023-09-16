@@ -47,6 +47,7 @@ def webhook_post() -> Response:
         data: WhatsAppData = request.json
 
         whatsapp_messages = get_whatsapp_messages(data)
+        print("Inside hook: ", whatsapp_messages)
 
         for whatsapp_message in whatsapp_messages:
             user_id = get_user_id_from_whatsapp_message(whatsapp_message)

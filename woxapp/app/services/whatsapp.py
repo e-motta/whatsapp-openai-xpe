@@ -45,7 +45,7 @@ def get_whatsapp_messages(data: WhatsAppData) -> WhatsAppMessages:
 
         for change in changes:
             messages.extend(_retrieve_whatsapp_messages(change))
-
+        print("Inside def'd get_w_m fn: ", messages)
         return messages
     except Exception as e:
         raise Exception("Error retrieving WhatsApp messages from json body") from e
