@@ -41,26 +41,25 @@ def webhook_post() -> Response:
     logger.info("Received POST request to webhook")
     if request.json is None:
         logger.warning("Received request with no JSON data.")
+
+    if "messages" not in request.json["entry"][0]["changes"][0]["value"].keys():
+        logger.warning("Received confirmation message.")
         return make_response("No data", 400)
-    print("Before processing message: ", request.json)
     try:
         data: WhatsAppData = request.json
 
         whatsapp_messages = get_whatsapp_messages(data)
-        print("Inside hook: ", whatsapp_messages)
 
         for whatsapp_message in whatsapp_messages:
             user_id = get_user_id_from_whatsapp_message(whatsapp_message)
             user_content = get_content_from_whatsapp_message(whatsapp_message)
 
             conversation = get_or_create_conversation(user_id)
-            print("After create conversation: ", conversation)
             add_message_to_conversation(
                 conversation,
                 role="user",
                 content=user_content,
             )
-            print("After adding message: ", conversation)
 
             assistant_content: OpenAIContent = get_assistant_content(
                 conversation.limited_messages
@@ -73,8 +72,6 @@ def webhook_post() -> Response:
                 role="assistant",
                 content=assistant_content,
             )
-
-            print("After assistant content: ", conversation)
 
             send_whatsapp_message(user_id, assistant_content)
     except Exception as e:

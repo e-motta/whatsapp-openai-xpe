@@ -24,7 +24,6 @@ def _retrieve_whatsapp_changes(data: WhatsAppData) -> WhatsAppChanges:
     if len(data.get("entry")) > 0:
         for entry in data.get("entry"):
             changes.extend(entry.get("changes"))
-    print("Inside changes fn: ", changes)
     return changes
 
 
@@ -34,7 +33,6 @@ def _retrieve_whatsapp_messages(change: WhatsAppChange) -> WhatsAppMessages:
     if change.get("field") == "messages":
         for message in change.get("value").get("messages"):
             messages.append(message)
-    print("Inside msg fn: ", messages)
     return messages
 
 
@@ -45,7 +43,6 @@ def get_whatsapp_messages(data: WhatsAppData) -> WhatsAppMessages:
 
         for change in changes:
             messages.extend(_retrieve_whatsapp_messages(change))
-        print("Inside def'd get_w_m fn: ", messages)
         return messages
     except Exception as e:
         raise Exception("Error retrieving WhatsApp messages from json body") from e
@@ -62,7 +59,7 @@ def get_content_from_whatsapp_message(message: WhatsAppMessage) -> str:
 def send_whatsapp_message(user_id: str, message: str):
     payload: WhatsAppRequest = {
         "messaging_product": "whatsapp",
-        # "recipient_type": "individual",
+        "recipient_type": "individual",
         "to": user_id,
         "type": "text",
         "text": {
@@ -70,7 +67,6 @@ def send_whatsapp_message(user_id: str, message: str):
             "preview_url": False,
         },
     }
-    print("Inside send_what_m: ", payload)
     try:
         response = post_message(payload)
         return response
