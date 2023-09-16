@@ -24,7 +24,7 @@ def _retrieve_whatsapp_changes(data: WhatsAppData) -> WhatsAppChanges:
     if len(data.get("entry")) > 0:
         for entry in data.get("entry"):
             changes.extend(entry.get("changes"))
-
+    print("Inside changes fn: ", changes)
     return changes
 
 
@@ -34,7 +34,7 @@ def _retrieve_whatsapp_messages(change: WhatsAppChange) -> WhatsAppMessages:
     if change.get("field") == "messages":
         for message in change.get("value").get("messages"):
             messages.append(message)
-
+    print("Inside msg fn: ", messages)
     return messages
 
 

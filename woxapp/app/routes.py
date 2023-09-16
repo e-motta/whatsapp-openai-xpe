@@ -42,7 +42,7 @@ def webhook_post() -> Response:
     if request.json is None:
         logger.warning("Received request with no JSON data.")
         return make_response("No data", 400)
-
+    print("Before processing message: ", request.json)
     try:
         data: WhatsAppData = request.json
 
