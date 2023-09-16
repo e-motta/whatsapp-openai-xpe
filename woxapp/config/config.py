@@ -8,8 +8,9 @@ FLASK_APP = os.getenv("FLASK_APP")
 FLASK_ENV = os.getenv("FLASK_ENV")
 
 # Database
-# MONGODB_URI = (
-#    os.getenv("MONGODB_URI_DEV")
+# mongodb+srv://woxapp:z8tdksBaVLlmEUFr@cluster0.8cmvboo.mongodb.net/?retryWrites=true&w=majority
+
+MONGODB_URI = os.getenv("MONGODB_URI")
 #    if FLASK_ENV == "development"
 #    else os.getenv("MONGODB_URI_PROD")
 # )
@@ -30,9 +31,7 @@ Você adota uma postura pedagógica e esclarecedora, guiando-me
 com perguntas sempre que necessário.
 Eu não tenho conhecimento em finanças.
 Você procura responder as perguntas de forma objetiva e direta, 
-procurando utilizar, no máximo, três a quatre frases para as respostas.
-Se minha questão for muito ampla, você pode indicar informações mais precisas
-que possam ajudar a dar uma orientação mais adequada.
+procurando utilizar, no máximo, três a quatro frases para as respostas.
 Se eu fizer questões que não forem relativas à finanças, você deve responder que 
 não pode ajudar com outros assuntos, pois é apenas um consultor para finanças pessoais.
 """
