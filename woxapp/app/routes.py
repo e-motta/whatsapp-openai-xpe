@@ -1,6 +1,6 @@
 from flask import Blueprint, request, make_response, Response
 import logging
-
+import json
 from ..config import OpenAIContent, WhatsAppData, FLASK_ENV
 from .services.whatsapp import (
     authenticate_token,
@@ -39,6 +39,7 @@ def webhook_get() -> Response:
 @webhook_route_blueprint.route("/", methods=["POST"])
 def webhook_post() -> Response:
     logger.info("Received POST request to webhook")
+    logger.info(json.dumps(request.json))
     if request.json is None:
         logger.warning("Received request with no JSON data.")
 

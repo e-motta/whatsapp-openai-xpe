@@ -7,7 +7,7 @@ from .utils import exponential_backoff_retry
 openai.api_key = OPENAI_API_KEY
 
 
-@exponential_backoff_retry(max_retries=0)
+# @exponential_backoff_retry(max_retries=0)
 def generate_chat_completion(messages: OpenAIMessages) -> dict[Any, Any]:
     return openai.ChatCompletion.create(  # type: ignore
         model="gpt-3.5-turbo",
