@@ -28,15 +28,15 @@ class Conversation:
             "limited_messages": [m.__dict__ for m in self.limited_messages],
         }
 
-    #def save(self):
+    # def save(self):
     #    if self._id:
     #        db.conversations.update_one({"_id": self._id}, {"$set": self._to_dict()})
     #    else:
     #        result = db.conversations.insert_one(self._to_dict())
     #        self._id = result.inserted_id
     #
-    #@staticmethod
-    #def get_by_user_id(user_id: str):
+    # @staticmethod
+    # def get_by_user_id(user_id: str):
     #    data = db.conversations.find_one({"user_id": user_id})
     #    if data:
     #        data["messages"] = [Message(**m) for m in data.pop("messages")]
