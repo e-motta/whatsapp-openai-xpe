@@ -1,8 +1,8 @@
 from dataclasses import dataclass, field
-from typing import Literal
+from typing import Literal, Optional
 from bson import ObjectId
 
-from ..config import MongoDB
+from .config import MongoDB
 
 mongo = MongoDB()
 db = mongo.db
@@ -19,7 +19,7 @@ class Conversation:
     user_id: str
     messages: list[Message] = field(default_factory=list)
     limited_messages: list[Message] = field(default_factory=list)
-    _id: ObjectId | None = None
+    _id: Optional[ObjectId] = None
 
     def _to_dict(self):
         return {

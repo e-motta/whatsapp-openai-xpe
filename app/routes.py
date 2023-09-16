@@ -1,7 +1,7 @@
 from flask import Blueprint, request, make_response, Response
 import logging
 
-from ..config import OpenAIContent, WhatsAppData, FLASK_ENV
+from .config import OpenAIContent, WhatsAppData, FLASK_ENV
 from .services.whatsapp import (
     authenticate_token,
     get_whatsapp_messages,
@@ -28,7 +28,7 @@ def webhook_get() -> Response:
     verify_token = request.args.get("hub.verify_token")
 
     if authenticate_token(hub_mode, verify_token):
-        body = request.args.get("hub.challenge") or "OK"
+        body = request.args.get("hub.challenge")
         logger.info("Verification successful")
         return make_response(body, 200)
     else:

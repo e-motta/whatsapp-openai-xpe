@@ -1,7 +1,7 @@
 from typing import Any
 import logging
 
-from ...config import OpenAIContent, OpenAIMessage, OpenAIMessages
+from ..config import OpenAIContent, OpenAIMessage, OpenAIMessages
 from ..models import Message
 from ..integrations.openai import generate_chat_completion
 

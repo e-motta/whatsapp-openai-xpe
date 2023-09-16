@@ -1,6 +1,6 @@
 import requests
 
-from ...config import WhatsAppRequest, WHATSAPP_API_URL, WHATSAPP_BEARER_TOKEN
+from ..config import WhatsAppRequest, WHATSAPP_API_URL, WHATSAPP_BEARER_TOKEN
 from .utils import exponential_backoff_retry
 
 

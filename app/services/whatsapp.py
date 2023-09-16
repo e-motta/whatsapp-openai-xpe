@@ -1,6 +1,7 @@
 import logging
+from typing import Optional
 
-from ...config import (
+from ..config import (
     WHATSAPP_LOCAL_TOKEN,
     WhatsAppData,
     WhatsAppChange,
@@ -14,7 +15,9 @@ from ..integrations.whatsapp import post_message
 logger = logging.getLogger(__name__)
 
 
-def authenticate_token(hub_mode: str | None, hub_verify_token: str | None) -> bool:
+def authenticate_token(
+    hub_mode: Optional[str], hub_verify_token: Optional[str]
+) -> bool:
     return hub_mode == "subscribe" and hub_verify_token == WHATSAPP_LOCAL_TOKEN
 
 

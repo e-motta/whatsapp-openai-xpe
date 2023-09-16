@@ -1,7 +1,7 @@
 from typing import Any
 import openai
 
-from ...config import OPENAI_API_KEY, OpenAIMessages
+from ..config import OPENAI_API_KEY, OpenAIMessages
 from .utils import exponential_backoff_retry
 
 openai.api_key = OPENAI_API_KEY

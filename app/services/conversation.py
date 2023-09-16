@@ -1,4 +1,4 @@
-from ...config import (
+from ..config import (
     INITIAL_PROMPT,
     ANSWER_SENTENCE_LIMIT,
     MESSAGES_LIMIT,

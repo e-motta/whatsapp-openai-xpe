@@ -31,9 +31,14 @@ PROD_LOGGING_CONFIG = {
         },
     },
     "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "INFO",
+            "formatter": "standard",
+        },
         "file": {
             "class": "logging.FileHandler",
-            "filename": "app.log",
+            "filename": "errors.log",
             "level": "ERROR",
             "formatter": "standard",
         },
