@@ -29,8 +29,8 @@ def get_or_create_conversation(user_id: str) -> Conversation:
 def _create_new_conversation_message(
     role: OpenAIRole, content: OpenAIContent
 ) -> Message:
-    if role == "user":
-        content += f". Responda em {ANSWER_SENTENCE_LIMIT} frases ou menos."
+    # if role == "user":
+    #    content += f". Responda em {ANSWER_SENTENCE_LIMIT} frases ou menos."
 
     new_message = Message(role=role, content=content)
 
