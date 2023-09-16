@@ -61,8 +61,8 @@ def get_content_from_whatsapp_message(message: WhatsAppMessage) -> str:
 
 def send_whatsapp_message(user_id: str, message: str):
     payload: WhatsAppRequest = {
-        "message_product": "whatsapp",
-        "recipient_type": "individual",
+        "messaging_product": "whatsapp",
+        # "recipient_type": "individual",
         "to": user_id,
         "type": "text",
         "text": {
