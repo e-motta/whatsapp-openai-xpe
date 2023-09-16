@@ -8,7 +8,6 @@ FLASK_APP = os.getenv("FLASK_APP")
 FLASK_ENV = os.getenv("FLASK_ENV")
 
 # Database
-# mongodb+srv://woxapp:z8tdksBaVLlmEUFr@cluster0.8cmvboo.mongodb.net/?retryWrites=true&w=majority
 
 MONGODB_URI = os.getenv("MONGODB_URI")
 #    if FLASK_ENV == "development"
