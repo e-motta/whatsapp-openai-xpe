@@ -47,7 +47,8 @@ def webhook_post() -> Response:
         data: WhatsAppData = request.json
 
         whatsapp_messages = get_whatsapp_messages(data)
-
+        logger.info("Whatsapp Messages:")
+        logger.info(whatsapp_messages)
         for whatsapp_message in whatsapp_messages:
             user_id = get_user_id_from_whatsapp_message(whatsapp_message)
             user_content = get_content_from_whatsapp_message(whatsapp_message)
@@ -63,7 +64,7 @@ def webhook_post() -> Response:
             assistant_content: OpenAIContent = get_assistant_content(
                 conversation.limited_messages
             )
-            # TODO: Fake message for testing purposes. Remove.
+            # # TODO: Fake message for testing purposes. Remove.
             # assistant_content: OpenAIContent = "Não se preocupe, estou aqui para te ajudar a entender e gerenciar suas finanças pessoais de forma simples e eficiente. Posso te orientar desde a criação de um orçamento até a organização de investimentos para o futuro."
 
             add_message_to_conversation(

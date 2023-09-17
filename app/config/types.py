@@ -95,7 +95,7 @@ WhatsAppRequestTextBody = TypedDict(
 WhatsAppRequest = TypedDict(
     "WhatsAppRequest",
     {
-        "message_product": Literal["whatsapp"],
+        "messaging_product": Literal["whatsapp"],
         "recipient_type": Literal["individual"],
         "to": str,
         "type": Literal["text"],

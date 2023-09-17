@@ -36,16 +36,16 @@ PROD_LOGGING_CONFIG = {
             "level": "INFO",
             "formatter": "standard",
         },
-        "file": {
-            "class": "logging.FileHandler",
-            "filename": "errors.log",
-            "level": "ERROR",
-            "formatter": "standard",
-        },
+        # "file": {
+        #     "class": "logging.FileHandler",
+        #     "filename": "errors.log",
+        #     "level": "ERROR",
+        #     "formatter": "standard",
+        # },
     },
     "root": {
-        "handlers": ["file"],
-        "level": "ERROR",
+        "handlers": ["console"],
+        "level": "INFO",
     },
 }
 
