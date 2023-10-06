@@ -1,9 +1,5 @@
 # Whatsapp OpenAI
 
-## Funcionalidades
-
-...
-
 ## Como rodar o projeto
 
 Instale o Python 3.11 (ou superior).
